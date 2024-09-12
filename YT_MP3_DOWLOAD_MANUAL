@@ -1,0 +1,18 @@
+import subprocess
+
+def ytdown(x):
+    video_url = x
+    command = f"yt-dlp -x --audio-format mp3 {video_url}"
+
+    process = subprocess.run(command, shell=True, capture_output=True, text=True)
+
+    print("STDOUT:", process.stdout)
+    print("STDERR:", process.stderr)
+    print("Return code:", process.returncode)
+
+
+URL_LIST = ['']
+
+
+for i in URL_LIST:
+    ytdown(i)
